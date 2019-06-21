@@ -1,0 +1,14 @@
+<div class="container" *ngIf="loggedInUser">
+  <button mat-raised-button color="accent" (click)="addNewBook()" style="margin: 20px 0;">
+    Add New Book <mat-icon aria-label="Add new book">add_circle</mat-icon>
+  </button>
+  <br/>
+  <app-filter
+    [(searchInput)]="searchInput"
+    [(categorySearch)]="categorySearch"
+    [(ratingSearch)]="ratingSearch"
+    [(sortProperty)]="sortProperty"
+    [(sortReverse)]="sortReverse"></app-filter>
+
+  <app-book *ngFor="let book of stocks | filter: searchInput: 'title' | filter: categorySearch: 'categories' | filter: ratingSearch: 'averageRating' | sort: sortProperty: sortReverse" [book]="book" [loggedInUser]="loggedInUser"></app-book>
+</div>

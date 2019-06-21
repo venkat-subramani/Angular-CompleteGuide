@@ -1,0 +1,40 @@
+<form class="registerForm" (ngSubmit)="onRegister(registerForm)" #registerForm="ngForm">
+  <p class="text-center errorMessage" *ngIf="registerError">{{ registerError.message }}</p>
+  <div class="form-group">
+    <label class="text" for="email">E-Mail address</label>
+    <input
+      class="form-control"
+      type="email"
+      id="email"
+      name="email"
+      placeholder="E-Mail address"
+      ngModel
+      required
+      email
+      #email="ngModel">
+    <span class="help-block text" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+  </div>
+  <div class="form-group">
+    <label class="text" for="password">Password</label>
+    <input
+      class="form-control"
+      type="password"
+      id="password"
+      name="password"
+      placeholder="Password"
+      ngModel
+      required
+      minlength="6"
+      #password="ngModel">
+    <span class="help-block text" *ngIf="!password.valid && password.touched">Password should be atleast 6 characters!</span>
+  </div>
+  <div class="text-center">
+      <button
+        class="btn btn-primary"
+        type="submit"
+        style="margin-bottom: 10px"
+        [disabled]="!registerForm.valid">Register</button>
+      <br>
+      <a class="text" [routerLink]="['/login']">Already Registered Log-In Now !</a>
+  </div>
+</form>

@@ -1,0 +1,19 @@
+mat-form-field {
+  width: 98%;
+  margin: 1%;
+}
+
+@media (max-width: 800px) {
+  mat-form-field{
+      width: 98% !important;
+  }
+}
+
+.dialog-actions {
+  float: right;
+  margin-top: 25px;
+}
+
+.dialog-actions > button {
+  margin: 0 10px;
+}

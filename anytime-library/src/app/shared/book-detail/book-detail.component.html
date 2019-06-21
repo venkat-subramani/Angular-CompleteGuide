@@ -1,0 +1,11 @@
+<mat-dialog-content class="mat-typography">
+  <img class="bookImg" [src]="book.imageUrl" [alt]="book.title">
+  <h2>{{ book.title }}</h2>
+  <mat-card-subtitle>
+    Author(s): {{ book.authors }}<br/>
+    Category: {{ book.categories }}<br/>
+    Rating: {{ book.averageRating }} ({{ book.ratingsCount }})<br/>
+    ISBN: {{ book.isbn }}<br/>
+  </mat-card-subtitle>
+  <p>{{ book.description }}</p>
+</mat-dialog-content>

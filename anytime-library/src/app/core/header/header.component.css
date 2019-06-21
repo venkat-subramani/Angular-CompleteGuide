@@ -1,0 +1,18 @@
+.links {
+  position: absolute;
+  right: 20px;
+}
+
+.links > button {
+  padding: 7px 20px;
+}
+
+.active {
+  background-color: #364491;
+  font-size: 16px;
+}
+
+.menuActive {
+  background-color: #c5c5c5;
+  font-weight: bold;
+}

@@ -1,0 +1,64 @@
+<mat-toolbar color="primary" style="height: 50px;">
+
+  <button class="hidden-md hidden-lg" *ngIf="isAuthenticated" mat-button style="margin-left: -20px;" [matMenuTriggerFor]="menu">
+    <mat-icon aria-label="Menu">menu</mat-icon></button>
+  <mat-menu #menu="matMenu">
+    <button
+      routerLinkActive="menuActive"
+      [routerLink]="['/']"
+      [routerLinkActiveOptions]="{ exact: true }"
+      mat-menu-item>Home</button>
+    <button
+      *ngIf="!isAdmin"
+      routerLinkActive="menuActive"
+      [routerLink]="['/browse']"
+      mat-menu-item>Browse</button>
+    <button
+      *ngIf="!isAdmin"
+      routerLinkActive="menuActive"
+      [routerLink]="['/mybooks']"
+      mat-menu-item>My Books</button>
+    <button
+      *ngIf="isAdmin"
+      routerLinkActive="menuActive"
+      [routerLink]="['/admin/stocks']"
+      mat-menu-item>Stocks</button>
+    <button
+      *ngIf="isAdmin"
+      routerLinkActive="menuActive"
+      [routerLink]="['/admin/users']"
+      mat-menu-item>Users</button>
+    <button (click)="onLogout()" mat-menu-item>Logout</button>
+  </mat-menu>
+
+  <span>Anytime Library</span>
+
+  <span class="links hidden-sm hidden-xs" *ngIf="isAuthenticated">
+    <button
+      routerLinkActive="active"
+      [routerLink]="['/']"
+      [routerLinkActiveOptions]="{ exact: true }"
+       mat-button>Home</button>
+    <button
+      *ngIf="!isAdmin"
+      routerLinkActive="active"
+      [routerLink]="['/browse']"
+      mat-button>Browse</button>
+    <button
+      *ngIf="!isAdmin"
+      routerLinkActive="active"
+      [routerLink]="['/mybooks']"
+      mat-button>My Books</button>
+    <button
+      *ngIf="isAdmin"
+      routerLinkActive="active"
+      [routerLink]="['/admin/stocks']"
+      mat-button>Stocks</button>
+    <button
+      *ngIf="isAdmin"
+      routerLinkActive="active"
+      [routerLink]="['/admin/users']"
+      mat-button>Users</button>
+    <button mat-button (click)="onLogout()">Logout</button>
+</span>
+</mat-toolbar>

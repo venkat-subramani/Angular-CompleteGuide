@@ -1,0 +1,10 @@
+<div class="container" *ngIf="loggedInUser">
+  <app-filter
+    [(searchInput)]="searchInput"
+    [(categorySearch)]="categorySearch"
+    [(ratingSearch)]="ratingSearch"
+    [(sortProperty)]="sortProperty"
+    [(sortReverse)]="sortReverse"></app-filter>
+
+  <app-book *ngFor="let book of books | filter: searchInput: 'title' | filter: categorySearch: 'categories' | filter: ratingSearch: 'averageRating' | sort: sortProperty: sortReverse" [book]="book" [loggedInUser]="loggedInUser"></app-book>
+</div>

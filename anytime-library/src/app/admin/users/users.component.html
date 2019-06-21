@@ -1,0 +1,23 @@
+<div class="container" style="margin-top: 30px;">
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let user of users; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{i + 1}}) {{user.email}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Reg: {{user.registeredOn | date: 'medium'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <div>
+        <p>Active Books</p>
+        <ul>
+          <li *ngFor="let activeBook of user.activeBooks">
+              {{activeBook.title}}&emsp;-&emsp;Issued on {{activeBook.issuedOn | date: 'medium'}}
+          </li>
+          <li *ngIf="!user.activeBooks">No Active books for this user.</li>
+        </ul>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

@@ -1,0 +1,32 @@
+.registerForm {
+  margin: 50px auto;
+  width: 80%;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  top: 10%;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media (min-width: 600px){
+  .registerForm{
+      width: 500px;
+  }
+}
+
+label {
+  font-weight: 500;
+}
+
+.text {
+  color: whitesmoke;
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  box-shadow: 0 0 0 0.2rem #ff5f6e47;
+}
+
+.errorMessage {
+  color: red;
+}

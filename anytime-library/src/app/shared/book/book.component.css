@@ -1,0 +1,10 @@
+.book-card {
+  margin-bottom: 20px;
+}
+
+.book-card > img {
+  max-width: 100px;
+  max-height: 150px;
+  margin: 0 10px;
+  float: left;
+}

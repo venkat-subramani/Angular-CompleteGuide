@@ -1,0 +1,34 @@
+<div class="container">
+    <mat-card *ngIf="loggedInUser && !loggedInUser.activeBooks">
+        No Active books are available to return.
+        <mat-card-subtitle>Please browse books in library from Browse section</mat-card-subtitle>
+    </mat-card>
+
+    <table *ngIf="loggedInUser && loggedInUser.activeBooks" mat-table [dataSource]="userBooks" class="mat-elevation-z8" style="width: 100%;">
+
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef> S.No. </th>
+          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="bookName">
+          <th mat-header-cell *matHeaderCellDef> Book Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.bookName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="issuedOn">
+          <th mat-header-cell *matHeaderCellDef> Issued On </th>
+          <td mat-cell *matCellDef="let element"> {{element.issuedOn | date: 'medium'}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Action </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-flat-button color="primary" (click)="returnBook(element)">{{element.action}}</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+</div>

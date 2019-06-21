@@ -1,0 +1,47 @@
+<mat-card style="margin-bottom: 10px;">
+  <mat-card-subtitle style="margin: 0">Filter</mat-card-subtitle>
+  <mat-form-field style="width: 31%; margin: 1%">
+    <input
+      type="text"
+      matInput
+      placeholder="Search Books..."
+      [(ngModel)]="searchInput"
+      (ngModelChange)="searchInputChange.emit($event)">
+    <mat-hint>Search Book by title</mat-hint>
+    <mat-icon matSuffix>search</mat-icon>
+  </mat-form-field>
+  <mat-form-field style="width: 31%; margin: 1%">
+    <mat-select
+      placeholder="Categories"
+      [(ngModel)]="categorySearch"
+      (ngModelChange)="categorySearchChange.emit($event)">
+      <mat-option value="">-- Filter By Categories --</mat-option>
+      <mat-option
+        *ngFor="let category of bookCategories"
+        [value]="category">{{ category }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field style="width: 31%; margin: 1%">
+    <mat-select
+      placeholder="Ratings"
+      [(ngModel)]="ratingSearch"
+      (ngModelChange)="ratingSearchChange.emit($event)">
+      <mat-option value="">-- Filter By Ratings --</mat-option>
+      <mat-option value="4">4+</mat-option>
+      <mat-option value="3">3+</mat-option>
+      <mat-option value="2">2+</mat-option>
+      <mat-option value="1">1+</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <p style="margin-top: 10px;">
+    <strong>Sort By:</strong>&nbsp;&nbsp;
+    <a style="cursor: pointer;" (click)="onSort('title')">
+      Title
+      <mat-icon *ngIf="sortProperty === 'title'" style="font-size: 16px;">{{ sortReverse ? 'expand_more' : 'expand_less' }}</mat-icon>
+    </a>&nbsp;&nbsp;
+    <a style="cursor: pointer;" (click)="onSort('averageRating')">
+      Rating
+      <mat-icon *ngIf="sortProperty === 'averageRating'" style="font-size: 16px;">{{ sortReverse ? 'expand_more' : 'expand_less' }}</mat-icon>
+    </a>
+  </p>
+</mat-card>
